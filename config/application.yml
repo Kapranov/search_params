@@ -1,0 +1,27 @@
+general: &general
+  PORT:                   '3000'
+  LOCALHOST:              'localhost'
+
+postgresql: &postgresql
+  POSTGRESQL_HOST:        'localhost'
+  POSTGRESQL_PORT:        '5432'
+  POSTGRESQL_USER:        'kapranov'
+  POSTGRESQL_PASSWORD:    'nicmos6922'
+
+development:
+  <<: *general
+  <<: *postgresql
+  POSTGRESQL_DB:          'store_development'
+  SECRET_KEY_BASE:        'c3eef525547df01ccece399aeb527e8e2477dd3d465338d1c1cf16a089630e4a7d12fb28a964c8e6f24db7d929c34b770792b2472c94b33a6cc188898d49ebf0'
+
+test:
+  <<: *general
+  <<: *postgresql
+  POSTGRESQL_DB:          'store_development_test'
+  SECRET_KEY_BASE:        'c9840d7a16a031693c88f7947f34b17d252804f7255d6d8367c36823c64f0c919e9f19f63570c67be649e1ebca0c37934cfe645b95fbe1b329bac53989452225'
+
+production:
+  <<: *general
+  <<: *postgresql
+  POSTGRESQL_DB:          'store_development_production'
+  SECRET_KEY_BASE:        '1d7bd6ea227d75328ae023d2d7f4d10e16c88bb4e9c71d1fda38e9dd15ce5e07b56ecdbc551bd3bb3e7439813ccb92d573787c9fbf18ab01da3a5ffe49262b95'
